@@ -19,4 +19,4 @@ exports.getAllPrompts = async (req, res) => {
   }
 };
 // בדיקה:
-router.get('/test', (req, res) => res.json({ msg: 'admin test ok' }));
+// router.get('/test', (req, res) => res.json({ msg: 'admin test ok' }));

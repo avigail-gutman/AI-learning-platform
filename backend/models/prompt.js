@@ -1,12 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
   const Prompt = sequelize.define('Prompt', {
     id: {
-      type: DataTypes.INTEGER,      // מזהה ייחודי ל-prompt
+      type: DataTypes.INTEGER,     
       autoIncrement: true,
       primaryKey: true
     },
     user_id: {
-      type: DataTypes.INTEGER,      // מזהה המשתמש
+      type: DataTypes.INTEGER,      
       allowNull: false,
       references: {
         model: 'users',
@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     category_id: {
-      type: DataTypes.INTEGER,      // מזהה הקטגוריה
+      type: DataTypes.INTEGER,      
       allowNull: false,
       references: {
         model: 'categories',
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     sub_category_id: {
-      type: DataTypes.INTEGER,      // מזהה תת-הקטגוריה
+      type: DataTypes.INTEGER,     
       allowNull: false,
       references: {
         model: 'sub_categories',
@@ -30,15 +30,15 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     prompt: {
-      type: DataTypes.TEXT,         // הטקסט שהמשתמש שלח ל-AI
+      type: DataTypes.TEXT,         
       allowNull: false
     },
     response: {
-      type: DataTypes.TEXT,         // התשובה שה-AI החזיר
+      type: DataTypes.TEXT,        
       allowNull: false
     },
     created_at: {
-      type: DataTypes.DATE,         // מתי נשלח ה-prompt
+      type: DataTypes.DATE,         
       defaultValue: DataTypes.NOW
     }
   }, {

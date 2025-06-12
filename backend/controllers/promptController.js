@@ -29,7 +29,6 @@ exports.getUserHistory = async (req, res) => {
   }
 };
 
-// חדש: שליפת prompts לפי פילטרים
 exports.getPromptsByFilter = async (req, res) => {
   try {
     const { user_id, category_id, sub_category_id } = req.query;

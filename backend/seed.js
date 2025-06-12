@@ -13,7 +13,7 @@ async function seed() {
     const math = await Category.create({ name: "Math" });
     const history = await Category.create({ name: "History" });
 
-    // תתי-קטגוריות (שימי לב ל-category_id)
+    // תתי-קטגוריות 
     const space = await SubCategory.create({ name: "Space", category_id: science.id });
     const biology = await SubCategory.create({ name: "Biology", category_id: science.id });
     const algebra = await SubCategory.create({ name: "Algebra", category_id: math.id });

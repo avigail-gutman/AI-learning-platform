@@ -1,25 +1,25 @@
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     id: {
-      type: DataTypes.INTEGER,      // מזהה ייחודי למשתמש
-      autoIncrement: true,          // עולה אוטומטית
-      primaryKey: true              // מפתח ראשי
+      type: DataTypes.INTEGER,     
+      autoIncrement: true,          
+      primaryKey: true              
     },
     name: {
-      type: DataTypes.STRING,       // שם המשתמש
+      type: DataTypes.STRING,      
       allowNull: false
     },
     phone: {
-      type: DataTypes.STRING,       // טלפון של המשתמש
+      type: DataTypes.STRING,      
       allowNull: false
     }
   }, {
-    tableName: 'users',             // שם הטבלה במסד הנתונים
-    timestamps: false               // לא מוסיף createdAt/updatedAt אוטומטית
+    tableName: 'users',           
+    timestamps: false               
   });
 
   User.associate = (models) => {
-    User.hasMany(models.Prompt, {   // למשתמש יש הרבה prompts (היסטוריית למידה)
+    User.hasMany(models.Prompt, {   
       foreignKey: 'user_id'
     });
   };

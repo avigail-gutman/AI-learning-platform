@@ -1,13 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
   const Category = sequelize.define('Category', {
     id: {
-      type: DataTypes.INTEGER,      // מזהה ייחודי לקטגוריה
+      type: DataTypes.INTEGER,      
       autoIncrement: true,
       primaryKey: true
     },
     name: {
-      type: DataTypes.STRING,       // שם הקטגוריה (למשל: Science)
-      allowNull: false
+      type: DataTypes.STRING,       
     }
   }, {
     tableName: 'categories',
@@ -15,10 +14,10 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Category.associate = (models) => {
-    Category.hasMany(models.SubCategory, { // לקטגוריה יש הרבה תתי-קטגוריות
+    Category.hasMany(models.SubCategory, { 
       foreignKey: 'category_id'
     });
-    Category.hasMany(models.Prompt, {      // לקטגוריה יש הרבה prompts
+    Category.hasMany(models.Prompt, {   
       foreignKey: 'category_id'
     });
   };
