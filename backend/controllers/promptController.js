@@ -28,3 +28,19 @@ exports.getUserHistory = async (req, res) => {
     res.status(500).json({ error: 'Failed to get user history' });
   }
 };
+
+// חדש: שליפת prompts לפי פילטרים
+exports.getPromptsByFilter = async (req, res) => {
+  try {
+    const { user_id, category_id, sub_category_id } = req.query;
+    const where = {};
+    if (user_id) where.user_id = user_id;
+    if (category_id) where.category_id = category_id;
+    if (sub_category_id) where.sub_category_id = sub_category_id;
+
+    const prompts = await Prompt.findAll({ where });
+    res.json(prompts);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to get prompts' });
+  }
+};

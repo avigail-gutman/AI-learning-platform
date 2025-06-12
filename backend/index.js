@@ -6,6 +6,7 @@ const userRoutes = require('./routes/users');
 const categoryRoutes = require('./routes/categories');
 const subCategoryRoutes = require('./routes/subcategories');
 const promptRoutes = require('./routes/prompts');
+const adminRoutes = require('./routes/admin');
 
 const app = express();
 app.use(cors());
@@ -15,6 +16,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/subcategories', subCategoryRoutes);
 app.use('/api/prompts', promptRoutes);
+app.use('/api/admin', adminRoutes);
 
 const PORT = process.env.PORT || 5000;
 
